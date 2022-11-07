@@ -1,3 +1,5 @@
+// working on arduino uno
+
 int LED = 3;
 int buzzer = 7; 
 void setup() {
