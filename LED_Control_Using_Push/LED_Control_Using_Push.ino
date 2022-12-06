@@ -1,20 +1,18 @@
-// C++ code
-//
 void setup()
 {
   Serial.begin(9600);
-  pinMode(2, INPUT);
-  pinMode(3, OUTPUT);
+  pinMode(11, INPUT);
+  pinMode(8, OUTPUT);
 }
 
 void loop()
 {
-  if(digitalRead(2)==1)
+  if(digitalRead(11)==1)
   {
-    digitalWrite(3, HIGH);
+    digitalWrite(8, HIGH);
   }
   else
   {
-    digitalWrite(3, LOW);
+    digitalWrite(8, LOW);
   }
 }
