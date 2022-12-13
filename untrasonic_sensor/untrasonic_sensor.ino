@@ -11,6 +11,8 @@ void setup()
   Serial.begin(9600);
   pinMode(Trigger, OUTPUT);
   pinMode(Echo, INPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
 }
 
 void loop(){
@@ -21,10 +23,10 @@ void loop(){
   duration = pulseIn(Echo, HIGH);
   distance = duration/2 * 0.0343;
   inch = distance * 0.393701;
-  Serial.print(+inch+"inch");
-  Serial.print(distance);
-  Serial.print("cm");
-  if (distance<5)
+  Serial.print(inch);
+//  Serial.print(distance);
+  Serial.println(" inch");
+  if (inch<2)
   {
     digitalWrite(ledPin1, HIGH);
     digitalWrite(ledPin2, LOW);
