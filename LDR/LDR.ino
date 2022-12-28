@@ -11,7 +11,7 @@ void setup()
 void loop()
 {
   light = analogRead(A0);
-  if(light<300){
+  if(light<1100){
     digitalWrite(2, HIGH);
     Serial.println(light);
   }
