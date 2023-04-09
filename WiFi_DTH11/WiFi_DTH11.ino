@@ -9,12 +9,12 @@ DHT DHT11_INTERFACE(DHT_PIN, DHT_TYPE);
 float temp = 0;
 float hum = 0 ;
 
-const char* ssid = "alien";
-const char* password = "abcd1234";
-const char* host = "172.20.10.3"; 
-const int httpsPort = 8080;
+const char* ssid = "GLA-CSED";
+const char* password = "GLACAMPUS";
+const char* host = "172.16.78.20:7080";
+const int httpsPort = 7080;
 
-const char Thing[] = "DHT11";
+const char Thing[] = "mohdajlal-L-2215007018-thing";
 const char Property1[] = "Temp";
 const char Property2[] = "Hum";
 
