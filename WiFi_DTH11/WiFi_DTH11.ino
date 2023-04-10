@@ -1,5 +1,12 @@
 #include <ESP8266WiFi.h>
 #include <DHT.h>
+#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_LSM303_U.h>
+#include <Adafruit_BMP085_U.h>
+#include <Adafruit_L3GD20_U.h>
+#include <Adafruit_10DOF.h>
 WiFiClient client;
 
 #define DHT_PIN 5
@@ -11,18 +18,18 @@ float hum = 0 ;
 
 const char* ssid = "GLA-CSED";
 const char* password = "GLACAMPUS";
-const char* host = "172.16.78.20:7080";
+const char* host = "172.16.78.20"; 
 const int httpsPort = 7080;
 
 const char Thing[] = "mohdajlal-L-2215007018-thing";
-const char Property1[] = "Temp";
-const char Property2[] = "Hum";
+const char Property1[] = "temp";
+const char Property2[] = "hum";
 
 void Put(String ThingName, String ThingProperty, String Value)
   {
 
     Serial.println(host);
-  if (!client.connect(host, httpsPort))
+  if (!client.connect(host, httpsPort)) 
  {
     Serial.println("connection failed");
     return;
