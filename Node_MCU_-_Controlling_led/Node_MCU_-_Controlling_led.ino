@@ -22,7 +22,7 @@ void setup()
   pinMode(led, OUTPUT);
 }
 
-void loop()y
+void loop()
 {
   // put your main code here, to run repeatedly:
   client = server.available();  //Gets a client that is connected to the server and has data available for reading.    

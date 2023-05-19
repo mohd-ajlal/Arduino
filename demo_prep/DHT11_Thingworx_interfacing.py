@@ -1,0 +1,27 @@
+import RPi.GPIO as GPIO
+import Adafruit_DHT
+import time
+import requests
+import http.client as http_client
+http_client.HTTPConnection.debuglevel = 1
+Webhost = 'http://dcs.glaitm.org:7080'
+App_Key = 'ec420fcf-22cb-44aa-94b7-7487d7cf5fef'
+ThingName = 'DHT11'
+Property1 = 'Temp'
+Property2 = 'Hum'
+headers = { 'Content-Type': 'application/json', 'appKey': App_Key }
+sensor = Adafruit_DHT.DHT11
+pin = 17
+
+while True:
+    try:
+        hum,temp = Adafruit_DHT.read_retry(sensor,pin)
+        if hum is not None and temp is not None:
+            print('temp= {0:0.2f} & hum = {1:0.2f}'.format(temp,hum))            
+            payload = { Property1: temp, Property2: hum }
+            response = requests.put(Webhost + '/Thingworx/Things/' + ThingName + '/Properties/*', headers=headers, json=payload, verify=False)
+            time.sleep(5)
+        else:
+            print('Error')
+    except KeyboardInterrupt:
+        GPIO.cleanup()                                                                                                                                                                                                                                                 
